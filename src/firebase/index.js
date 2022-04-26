@@ -2,12 +2,12 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyCTLlslt4NeIfdFSTw2WqW7_dJQBpGdH9o",
-  authDomain: "travel-29ab4.firebaseapp.com",
-  projectId: "travel-29ab4",
-  storageBucket: "travel-29ab4.appspot.com",
-  messagingSenderId: "159547679140",
-  appId: "1:159547679140:web:68991ed8fff9ab1fe7a131",
+  apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+  projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+  storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.REACT_APP_MESSAGING_SENDER_ID}`,
+  appId: `${process.env.REACT_APP_APP_ID}`,
 });
 
 const auth = app.auth();

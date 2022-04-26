@@ -13,24 +13,25 @@ const Login = () => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-
-    signUp
-      ? signUp(email, password)
-          .then(() => {
-            console.log("signed up a new account!");
-          })
-          .catch((error) => {
-            console.log("error signing up");
-          })
-      : login(email, password)
-          .then(() => {
-            console.log("success");
-          })
-          .catch((error) => {
-            if (error) {
-              console.log("error logging in");
-            }
-          });
+    if (email && password) {
+      signUp
+        ? signUp(email, password)
+            .then(() => {
+              console.log("signed up a new account!");
+            })
+            .catch((error) => {
+              console.log("error signing up");
+            })
+        : login(email, password)
+            .then(() => {
+              console.log("success");
+            })
+            .catch((error) => {
+              if (error) {
+                console.log("error logging in");
+              }
+            });
+    }
   };
 
   const renderConfirmPassword = () => {
@@ -80,10 +81,10 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-xs m-2">
+    <div className="max-w-xs my-2 mx-auto">
       <form
         className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        onSubmit={(e) => (handleSubmitForm(e))}
+        onSubmit={(e) => handleSubmitForm(e)}
       >
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Email
