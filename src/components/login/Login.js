@@ -1,97 +1,121 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const [signUp, setSignUp] = useState(false);
+  const [signUpState, setSignUp] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const actions = useAuth();
+  const context = useAuth();
+  const { login, loginWithGoogle, signUp } = context;
 
-  const formStyle = {
-    display: "flex",
-    flexDirection: "column",
-    width: "50%",
-    margin: "0 auto",
-  };
-
-  const handleLogin = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
-    actions
-      .login(email, password)
-      .then(() => {
-        console.log("success");
-      })
-      .catch((error) => {
-        if (error) {
-          console.log("error logging in");
-        }
-      });
-  };
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
-
-    if (password === confirmPassword) {
-        alert("passwords match")
-        return
+    if (email && password) {
+      signUp
+        ? signUp(email, password)
+            .then(() => {
+              console.log("signed up a new account!");
+            })
+            .catch((error) => {
+              console.log("error signing up");
+            })
+        : login(email, password)
+            .then(() => {
+              console.log("success");
+            })
+            .catch((error) => {
+              if (error) {
+                console.log("error logging in");
+              }
+            });
     }
-
-    actions
-      .signUp(email, password)
-      .then(() => {
-        console.log("signed up a new account!");
-      })
-      .catch((error) => {
-        console.log("error signing up");
-      });
   };
 
-  const renderLogin = () => {
-    return (
-      <div>
-        <form style={formStyle} onSubmit={(e) => handleLogin(e)}>
-          <label>Email</label>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-          <label>Password</label>
-          <input type="text" onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit">Submit</button>
-        </form>
-        <p style={{ fontSize: "10px", textAlign: "center" }}>
-          Dont have an account?
-          <span onClick={() => setSignUp(true)}> Click here </span>
-          to sign up!
-        </p>
-      </div>
-    );
-  };
-
-  const renderSignIn = () => {
-    return (
-      <div>
-        <form style={formStyle} onSubmit={(e) => handleSignUp(e)}>
-          <label>Email</label>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-          <label>Password</label>
-          <input type="text" onChange={(e) => setPassword(e.target.value)} />
-          <label>Please Confirm Password</label>
+  const renderConfirmPassword = () => {
+    if (signUpState) {
+      return (
+        <>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Please Confirm Password
+          </label>
           <input
-            type="text"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
+            type="password"
+            placeholder="********"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit">Submit</button>
-        </form>
-        <p style={{ fontSize: "10px", textAlign: "center" }}>
-          Already have an account?
-          <span onClick={() => setSignUp(false)}> Click here </span>
-          to log in!
-        </p>
-      </div>
+        </>
+      );
+    }
+  };
+
+  const renderGoogleSignInButton = () => {
+    return (
+      <button
+        className="bg-white text-sm shadow-md flex py-2 px-4 rounded focus:outline-none focus:shadow-outline justify-center align-middle items-center mt-2"
+        onClick={loginWithGoogle}
+      >
+        <span>Sign In with Google</span>
+        <FcGoogle size="1.3em" className="ml-1" />
+      </button>
     );
   };
 
-  return <div>{ signUp ? renderSignIn() : renderLogin() }</div>;
+  const renderSwitchToSignIn = () => {
+    return (
+      <p className="text-xs text-center opacity-70 mt-3">
+        Dont have an account?
+        <span
+          className="text-blue-600 font-bold cursor-pointer hover:text-blue-700"
+          onClick={() => setSignUp(!signUpState)}
+        >
+          {" "}
+          Click here{" "}
+        </span>
+        to sign up!
+      </p>
+    );
+  };
+
+  return (
+    <div className="max-w-xs my-2 mx-auto">
+      <form
+        className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={(e) => handleSubmitForm(e)}
+      >
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Email
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2 text-sm letter"
+          type="text"
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="ahmedmcgarry@hotmail.com"
+        />
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Password
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="********"
+        />
+        {renderConfirmPassword()}
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Submit
+        </button>
+        {renderGoogleSignInButton()}
+        {renderSwitchToSignIn()}
+      </form>
+    </div>
+  );
 };
 
 export default Login;
