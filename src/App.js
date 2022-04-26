@@ -4,6 +4,7 @@ import { useAuth } from "./context/AuthContext";
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
+import { data } from "autoprefixer";
 
 // "_delegate":{
 //   "uid":"lLQ3n9zHvSe1E2OoeG9IYhJe9Mm1",
@@ -16,13 +17,16 @@ const App = () => {
   // const { currentUser } = context;
 
   // const [data, setData] = useState()
-  const {isLoading, error, recipieData } = useSpoonacularRecipies( [{ query: "addRecipieInformation", value: true }] );
-  
+  const { isLoading, error, recipies } = useSpoonacularRecipies([
+    { query: "addRecipieInformation", value: true },
+    { query: "cuisine", value: "Italian" },
+  ]);
+
   return (
-  <div>
-    <Login />
-    <Navbar />
-  </div>
+    <div>
+      <Login />
+      <Navbar />
+    </div>
   );
 };
 
