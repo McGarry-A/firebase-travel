@@ -34,6 +34,8 @@ const Login = () => {
     }
   };
 
+  const handleForgotPassword = () => {}
+
   const renderConfirmPassword = () => {
     if (signUpState) {
       return (
@@ -80,6 +82,15 @@ const Login = () => {
     );
   };
 
+  const renderForgotPassword = () => (
+    <span
+      onClick={handleForgotPassword}
+      className="text-sm text-center mt-3 font-bold text-blue-700 cursor-pointer"
+    >
+      Forgot password?
+    </span>
+  );
+
   return (
     <div className="max-w-xs my-2 mx-auto">
       <form
@@ -113,6 +124,7 @@ const Login = () => {
         </button>
         {renderGoogleSignInButton()}
         {renderSwitchToSignIn()}
+        {renderForgotPassword()}
       </form>
     </div>
   );
