@@ -8,7 +8,11 @@ const app = firebase.initializeApp({
   storageBucket: "travel-29ab4.appspot.com",
   messagingSenderId: "159547679140",
   appId: "1:159547679140:web:68991ed8fff9ab1fe7a131",
-})
+});
 
-export const auth = app.auth()
-export default app;
+const auth = app.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+
+export { provider, app, auth }
