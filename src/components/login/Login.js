@@ -7,34 +7,43 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const context = useAuth();
-  const { login, loginWithGoogle, signUp } = context;
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (email && password) {
-      signUp
-        ? signUp(email, password)
-            .then(() => {
-              console.log("signed up a new account!");
-            })
-            .catch((error) => {
-              console.log("error signing up");
-            })
-        : login(email, password)
-            .then(() => {
-              console.log("success");
-            })
-            .catch((error) => {
-              if (error) {
-                console.log("error logging in");
-              }
-            });
-    }
+    const { login, signUp, currentUser, setCurrentUser } = context;
+
+    signUp
+      ? signUp(email, password)
+          .then((userCredential) => {
+            setCurrentUser(userCredential.user);
+            console.log(currentUser);
+          })
+          .catch((error) => {
+            setError(true);
+          })
+      : login(email, password)
+          .then((userCredential) => {
+            setCurrentUser(userCredential.user);
+          })
+          .catch((error) => {
+            setError(true);
+          });
   };
 
-  const handleForgotPassword = () => {}
+  const handleForgotPassword = () => {};
+
+  const renderErrorMessage = () => {
+    if (error) {
+      return (
+        <span className="text-red-500 text-center text-xs font-style-italic">
+          *Incorrect username or password
+        </span>
+      );
+    }
+  };
 
   const renderConfirmPassword = () => {
     if (signUpState) {
@@ -55,6 +64,8 @@ const Login = () => {
   };
 
   const renderGoogleSignInButton = () => {
+    const { loginWithGoogle } = context;
+
     return (
       <button
         className="bg-white text-sm shadow-md flex py-2 px-4 rounded focus:outline-none focus:shadow-outline justify-center align-middle items-center mt-2"
@@ -66,21 +77,19 @@ const Login = () => {
     );
   };
 
-  const renderSwitchToSignIn = () => {
-    return (
-      <p className="text-xs text-center opacity-70 mt-3">
-        Dont have an account?
-        <span
-          className="text-blue-600 font-bold cursor-pointer hover:text-blue-700"
-          onClick={() => setSignUp(!signUpState)}
-        >
-          {" "}
-          Click here{" "}
-        </span>
-        to sign up!
-      </p>
-    );
-  };
+  const renderSwitchToSignIn = () => (
+    <p className="text-xs text-center opacity-70 mt-3">
+      Dont have an account?
+      <span
+        className="text-blue-600 font-bold cursor-pointer hover:text-blue-700"
+        onClick={() => setSignUp(!signUpState)}
+      >
+        {" "}
+        Click here{" "}
+      </span>
+      to sign up!
+    </p>
+  );
 
   const renderForgotPassword = () => (
     <span
@@ -123,6 +132,7 @@ const Login = () => {
           Submit
         </button>
         {renderGoogleSignInButton()}
+        {renderErrorMessage()}
         {renderSwitchToSignIn()}
         {renderForgotPassword()}
       </form>

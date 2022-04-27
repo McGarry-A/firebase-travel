@@ -13,6 +13,8 @@ const app = firebase.initializeApp({
 const auth = app.auth();
 
 const provider = new firebase.auth.GoogleAuthProvider();
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
 provider.setCustomParameters({ prompt: "select_account" });
 
-export { provider, app, auth }
+export { facebookProvider, provider, app, auth }

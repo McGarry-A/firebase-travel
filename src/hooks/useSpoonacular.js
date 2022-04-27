@@ -23,17 +23,14 @@ const useSpoonacularRecipies = (params) => {
       try {
         const response = await fetch(newURL, {
           method: "GET",
-          headers: { "Content-Type": "Application/json" },
+          headers: {
+            "content-type": "application/json",
+          },
         });
 
         const data = await response.json();
-
-        const recipiesData = data.results.map((el) => {
-          const { vegetarian, vegan, summary, title, image } = el;
-          return { vegetarian, vegan, summary, title, image };
-        });
-
-        setRecipies(recipiesData);
+        setRecipies(data);
+        setIsLoading(false);
       } catch (error) {
         setError(error);
         console.log(`There was an error fetching from spoontacular`);
@@ -44,6 +41,10 @@ const useSpoonacularRecipies = (params) => {
   }, [newURL]);
 
   const data = { recipies, isLoading, error };
+
+  console.log(newURL);
+  console.log(data);
+
   return data;
 };
 
