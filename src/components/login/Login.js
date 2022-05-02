@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     if (email && password) {
-      signUp
+      signUpState
         ? signUp(email, password)
             .then(() => {
               console.log("signed up a new account!");

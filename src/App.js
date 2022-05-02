@@ -4,25 +4,24 @@ import { useAuth } from "./context/AuthContext";
 import Login from "./components/login/Login";
 import Navbar from "./components/navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
-
-// "_delegate":{
-//   "uid":"lLQ3n9zHvSe1E2OoeG9IYhJe9Mm1",
-//   "email":"atomcgarry@gmail.com",
-//   "emailVerified":true,
-//   "displayName":"Ahmed McGarry",
+import Carousel from "./components/carousel/carousel/Carousel";
+import data from "./components/carousel";
 
 const App = () => {
   const context = useAuth();
-  // const { currentUser } = context;
+  const { currentUser, logout } = context;
 
-  // const [data, setData] = useState()
-  const {isLoading, error, recipieData } = useSpoonacularRecipies( [{ query: "addRecipieInformation", value: true }] );
-  
+  const { isLoading, error, recipieData } = useSpoonacularRecipies([
+    { query: "addRecipieInformation", value: true },
+  ]);
+
   return (
-  <div>
-    <Login />
-    <Navbar />
-  </div>
+    <div>
+      <Login />
+      <Navbar />
+      <Carousel />
+      <button onClick={logout}>Log Out</button>
+    </div>
   );
 };
 

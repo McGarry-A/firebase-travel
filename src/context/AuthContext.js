@@ -28,7 +28,13 @@ export const AuthProvider = ({ children }) => {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
-    const loginWithGoogle = () => auth.signInWithPopup(provider);
+    const loginWithGoogle = () => {
+        try {
+            auth.signInWithPopup(provider);
+        } catch(e) {
+            console.log(e)
+        }
+    }
 
     const logout = () => auth.signOut()
     
