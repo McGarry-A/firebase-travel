@@ -1,4 +1,4 @@
-import { GiHamburgerMenu, GiShoppingBag } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
 import { useAuth } from "../../context/AuthContext";
 
@@ -17,7 +17,7 @@ const Navbar = () => {
           <img
             src={photoURL}
             alt="profile icon"
-            className="rounded-full w-[3em]"
+            className="rounded-full w-[2em]"
           />
         </div>
       );
@@ -39,8 +39,8 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between m-5 align-center">
-      {renderUserIcon()}
-      {renderMenu()}
+      { renderUserIcon() }
+      { renderMenu() }
     </nav>
   );
 };

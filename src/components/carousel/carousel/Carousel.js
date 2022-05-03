@@ -5,7 +5,7 @@ import { FaRegThumbsDown } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
 
 const Carousel = () => {
-  const [currentCard, setCurrentCard] = useState(0);
+  const [currentCard, setCurrentCard] = useState(1);
   const [outOfCards, setOutOfCards] = useState(false);
 
   useEffect(() => {
@@ -33,32 +33,11 @@ const Carousel = () => {
   const renderCards = () => {
     if (!outOfCards) {
       return (
-        <div className="flex justify-center">
+        <div className={`flex whitespace-nowrap flex-nowrap -translate-x-[${currentCard * 100}%] transition`}>
           {data.map((el, index) => {
-            const card = "max-w-sm rounded overflow-hidden shadow-lg md:min-w-sm";
-
-            const currentCardClass = "";
-            const nextCardClass = "";
-            const hiddenCardClass = "";
-
-            const nextCard = currentCard + 1;
-
-            let classNames = "";
-
-            switch (index) {
-              case currentCard:
-                classNames = `${card + currentCardClass}`;
-                break;
-              case nextCard:
-                classNames = `${card + nextCardClass}`;
-                break;
-              default:
-                classNames = `${card + hiddenCardClass}`;
-                break;
-            }
 
             return (
-              <div className={`${classNames} m-5`} key={index}>
+              <div className="rounded overflow-hidden shadow-lg min-w-full pb-10" key={index}>
                 <div className="">
                   <img src={el.img} alt="recipie" className="w-full" />
                 </div>
@@ -81,10 +60,10 @@ const Carousel = () => {
   };
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className="">
-        {renderCards()}
-        {renderOutOfCards()}
+        { renderCards() }
+        { renderOutOfCards() }
       </div>
       <div className="flex justify-center mt-3">
         <FaRegThumbsUp

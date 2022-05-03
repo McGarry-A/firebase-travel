@@ -1,8 +1,8 @@
 import React from "react";
 import "firebase/compat/auth";
 import { useAuth } from "./context/AuthContext";
-import Login from "./components/login/Login";
-import Navbar from "./components/navbar/Navbar";
+import Login from "./components/Login/Login";
+import Navbar from "./components/Navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
 import Carousel from "./components/carousel/carousel/Carousel";
 import data from "./components/carousel";
