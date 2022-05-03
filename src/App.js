@@ -1,26 +1,26 @@
 import React from "react";
 import "firebase/compat/auth";
 import { useAuth } from "./context/AuthContext";
-// import Login from "./components/login/Login";
-// import Navbar from "./components/navbar/Navbar";
-// import useSpoonacularRecipies from "./hooks/useSpoonacular";
-import CardContainer from "./components/CardContainer/CardContainer";
+import Login from "./components/login/Login";
+import Navbar from "./components/navbar/Navbar";
+import useSpoonacularRecipies from "./hooks/useSpoonacular";
+import Carousel from "./components/carousel/carousel/Carousel";
+import data from "./components/carousel";
 
 const App = () => {
   const context = useAuth();
-  // const { currentUser } = context;
-  // const [data, setData] = useState();
+  const { currentUser, logout } = context;
 
-  // const { isLoading, error, recipies } = useSpoonacularRecipies([
-  //   { query: "addRecipieInformation", value: true },
-  //   { query: "cuisine", value: "Italian" },
-  // ]);
+  const { isLoading, error, recipieData } = useSpoonacularRecipies([
+    { query: "addRecipieInformation", value: true },
+  ]);
 
   return (
     <div>
-      {/* <Login /> */}
-      {/* <Navbar /> */}
-      <CardContainer />
+      <Login />
+      <Navbar />
+      <Carousel />
+      <button onClick={logout}>Log Out</button>
     </div>
   );
 };

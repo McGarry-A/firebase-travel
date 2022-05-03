@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-const useSpoonacularRecipies = (params) => {
+const useSpoonacularRecipies = ({
+  params = [{ query: "addRecipieInformation", value: true }],
+}) => {
   const [recipies, setRecipies] = useState();
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState();
@@ -23,28 +25,22 @@ const useSpoonacularRecipies = (params) => {
       try {
         const response = await fetch(newURL, {
           method: "GET",
-          headers: {
-            "content-type": "application/json",
-          },
+          headers: { "Content-Type": "Application/json" },
         });
-
         const data = await response.json();
         setRecipies(data);
-        setIsLoading(false);
+        console.log("fetched!");
       } catch (error) {
         setError(error);
-        console.log(`There was an error fetching from spoontacular`);
+        console.error(`There was an error fetching from spoontacular`);
       }
     };
-
     fetchData();
   }, [newURL]);
 
   const data = { recipies, isLoading, error };
 
-  console.log(newURL);
-  console.log(data);
-
+  // should also return loading and error
   return data;
 };
 

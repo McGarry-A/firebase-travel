@@ -13,6 +13,7 @@ const Login = () => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
+
     const { login, signUp, currentUser, setCurrentUser } = context;
 
     signUp

@@ -8,10 +8,10 @@ import { meals } from "./meals";
 
 const CardContainer = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  
+
   useEffect(() => {
     const checkOutOfCards = () => {
-      if (currentCardIndex > meals.length - 1|| currentCardIndex < 0) {
+      if (currentCardIndex > meals.length - 1 || currentCardIndex < 0) {
         setCurrentCardIndex(0);
       }
     };
