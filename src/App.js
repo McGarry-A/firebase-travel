@@ -16,10 +16,10 @@ const App = () => {
 
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
       <Navbar />
-      <Carousel />
-      <button onClick={logout}>Log Out</button>
+      {/* <Carousel />
+      <button onClick={logout}>Log Out</button> */}
     </div>
   );
 };
