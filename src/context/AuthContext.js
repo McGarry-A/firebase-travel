@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, provider } from "../firebase"
+import { auth, provider } from "../firebase";
 
-const AuthContext = React.createContext()
+const AuthContext = React.createContext();
 
 export const useAuth = () => {
-    return useContext(AuthContext)
-}
+  return useContext(AuthContext);
+};
 
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState();
@@ -28,7 +28,13 @@ export const AuthProvider = ({ children }) => {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
-    const loginWithGoogle = () => auth.signInWithPopup(provider);
+    const loginWithGoogle = () => {
+        try {
+            auth.signInWithPopup(provider);
+        } catch(e) {
+            console.log(e)
+        }
+    }
 
     const logout = () => auth.signOut()
     
