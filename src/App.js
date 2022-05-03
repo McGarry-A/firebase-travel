@@ -15,7 +15,7 @@ const App = () => {
   ]);
 
   return (
-    <div>
+    <div className="font-sans">
       {/* <Login /> */}
       <Navbar />
       {/* <Carousel />
