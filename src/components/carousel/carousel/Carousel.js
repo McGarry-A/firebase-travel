@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
+import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
+
 import data from "../../carousel";
-import { FaRegThumbsUp } from "react-icons/fa";
-import { FaRegThumbsDown } from "react-icons/fa";
-import { useAuth } from "../../../context/AuthContext";
 
 const Carousel = () => {
   const [currentCard, setCurrentCard] = useState(1);
@@ -37,7 +36,7 @@ const Carousel = () => {
           {data.map((el, index) => {
 
             return (
-              <div className="rounded overflow-hidden shadow-lg min-w-full pb-10" key={index}>
+              <div className="rounded overflow-hidden shadow-lg min-w-full mx-1" key={index}>
                 <div className="">
                   <img src={el.img} alt="recipie" className="w-full" />
                 </div>
@@ -61,7 +60,7 @@ const Carousel = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="">
+      <div className="overflow-hidden p-2">
         { renderCards() }
         { renderOutOfCards() }
       </div>

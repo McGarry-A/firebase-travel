@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, provider /* facebookProvider */ } from "../firebase";
+import { auth, provider } from "../firebase";
 
 const AuthContext = React.createContext();
 

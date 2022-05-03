@@ -9,7 +9,6 @@ const useSpoonacularRecipies = ({
 
   const baseUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&`;
 
-  // BUILD URL FROM PARAMS
   const paramsAsArray = params.map((el) => {
     const { query, value } = el;
     return query.concat(`=${value}&`);
@@ -18,7 +17,6 @@ const useSpoonacularRecipies = ({
   const paramsAsString = paramsAsArray.join("");
   const newURL = `${baseUrl}${paramsAsString}`;
 
-  // FETCH FROM API USING THE API KEY USING ASYNC
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -40,7 +38,6 @@ const useSpoonacularRecipies = ({
 
   const data = { recipies, isLoading, error };
 
-  // should also return loading and error
   return data;
 };
 

@@ -5,12 +5,11 @@ import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
 import Carousel from "./components/carousel/carousel/Carousel";
-import data from "./components/carousel";
 
 const App = () => {
   const context = useAuth();
+  
   const { currentUser, logout } = context;
-
   const { isLoading, error, recipieData } = useSpoonacularRecipies([
     { query: "addRecipieInformation", value: true },
   ]);
