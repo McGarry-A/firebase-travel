@@ -29,30 +29,31 @@ const Carousel = () => {
     }
   };
 
+  const renderCard = (el, index) => {
+      return (
+        <div className="rounded overflow-hidden shadow-lg min-w-full mx-1" key={index}>
+          <div className="">
+            <img src={el.img} alt="recipie" className="w-full" />
+          </div>
+          <div className="mx-2">
+            <h3 className="text-lg font-bold my-1">{el.recipie}</h3>
+            <p className="my-1 opacity-50">{el.name}</p>
+            <p className="text-gray-700 text-base">{el.description}</p>
+            <p className="my-4 opacity-30 text-sm text-right">{el.date}</p>
+            <div className="mb-4">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mr-3">Bookmark</button>
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Instructions</button>
+            </div>
+          </div>
+        </div>
+      );
+  }
+
   const renderCards = () => {
     if (!outOfCards) {
       return (
         <div className={`flex whitespace-nowrap flex-nowrap -translate-x-[${currentCard * 100}%] transition`}>
-          {data.map((el, index) => {
-
-            return (
-              <div className="rounded overflow-hidden shadow-lg min-w-full mx-1" key={index}>
-                <div className="">
-                  <img src={el.img} alt="recipie" className="w-full" />
-                </div>
-                <div className="mx-2">
-                  <h3 className="text-lg font-bold my-1">{el.recipie}</h3>
-                  <p className="my-1 opacity-50">{el.name}</p>
-                  <p className="text-gray-700 text-base">{el.description}</p>
-                  <p className="my-4 opacity-30 text-sm text-right">{el.date}</p>
-                  <div className="mb-4">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mr-3">Bookmark</button>
-                    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Instructions</button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {data.map(renderCard)}
         </div>
       );
     }
