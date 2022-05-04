@@ -53,7 +53,7 @@ const Carousel = () => {
     if (!outOfCards) {
       return (
         <div className={`flex whitespace-nowrap flex-nowrap -translate-x-[${currentCard * 100}%] transition`}>
-          {data.map(renderCard)}
+          { data.map(renderCard) }
         </div>
       );
     }
