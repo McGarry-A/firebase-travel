@@ -1,8 +1,7 @@
 import React from "react";
 import "firebase/compat/auth";
 import { useAuth } from "./context/AuthContext";
-import Login from "./components/Login/Login";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
 import Carousel from "./components/carousel/carousel/Carousel";
 
@@ -15,11 +14,11 @@ const App = () => {
   ]);
 
   return (
-    <div>
+    <div className="font-sans">
       {/* <Login /> */}
       <Navbar />
-      {/* <Carousel />
-      <button onClick={logout}>Log Out</button> */}
+      <Carousel />
+      <button onClick={logout}>Log Out</button>
     </div>
   );
 };
