@@ -1,10 +1,9 @@
 import React from "react";
 import "firebase/compat/auth";
 import { useAuth } from "./context/AuthContext";
-import Login from "./components/Login/Login";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import useSpoonacularRecipies from "./hooks/useSpoonacular";
-import Carousel from "./components/carousel/carousel/Carousel";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   const context = useAuth();
@@ -15,11 +14,9 @@ const App = () => {
   ]);
 
   return (
-    <div>
-      {/* <Login /> */}
+    <div className="">
       <Navbar />
-      {/* <Carousel />
-      <button onClick={logout}>Log Out</button> */}
+      <Footer />
     </div>
   );
 };
