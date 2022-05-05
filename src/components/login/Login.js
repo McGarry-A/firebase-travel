@@ -12,14 +12,14 @@ const Login = () => {
 
 	const context = useAuth()
 
-	const handleSubmitForm = ( e ) => {
+	const handleSubmitForm = e => {
 		e.preventDefault()
 
 		const { login, signUp, currentUser, setCurrentUser } = context
 
 		signUp
 			? signUp( email, password )
-				.then( ( userCredential ) => {
+				.then( userCredential => {
 					setCurrentUser( userCredential.user )
 					console.log( currentUser )
 				} )
@@ -27,7 +27,7 @@ const Login = () => {
 					setError( true )
 				} )
 			: login( email, password )
-				.then( ( userCredential ) => {
+				.then( userCredential => {
 					setCurrentUser( userCredential.user )
 				} )
 				.catch( () => {
@@ -105,7 +105,7 @@ const Login = () => {
 		<div className="max-w-xs my-2 mx-auto">
 			<form
 				className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-				onSubmit={( e ) => handleSubmitForm( e )}
+				onSubmit={e => handleSubmitForm( e )}
 			>
 				<label className="block text-gray-700 text-sm font-bold mb-2">
           Email
@@ -113,7 +113,7 @@ const Login = () => {
 				<input
 					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2 text-sm letter"
 					type="text"
-					onChange={( e ) => setEmail( e.target.value )}
+					onChange={e => setEmail( e.target.value )}
 					placeholder="ahmedmcgarry@hotmail.com"
 				/>
 				<label className="block text-gray-700 text-sm font-bold mb-2">
@@ -121,7 +121,7 @@ const Login = () => {
 				</label>
 				<input
 					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-					onChange={( e ) => setPassword( e.target.value )}
+					onChange={e => setPassword( e.target.value )}
 					type="password"
 					placeholder="********"
 				/>

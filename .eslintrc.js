@@ -19,6 +19,7 @@ module.exports = {
 		"object-curly-spacing": [1, "always"],
 		"space-in-parens": [1, "always"],
 		semi: ["error", "never"],
+		"arrow-parens": [2, "as-needed"],
 		"react/prop-types": 0,
 	},
 }

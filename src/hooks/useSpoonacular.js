@@ -9,7 +9,7 @@ const useSpoonacularRecipies = ( {
 
 	const baseUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&`
 
-	const paramsAsArray = params.map( ( el ) => {
+	const paramsAsArray = params.map( el => {
 		const { query, value } = el
 		return query.concat( `=${value}&` )
 	} )

@@ -38,11 +38,11 @@ export const AuthProvider = ( { children } ) => {
 
 	const logout = () => auth.signOut()
     
-	const resetPassword = ( email ) => auth.sendPasswordResetEmail( email )
+	const resetPassword = email => auth.sendPasswordResetEmail( email )
 
-	const updateEmail = ( email ) => currentUser.updateEmail( email )
+	const updateEmail = email => currentUser.updateEmail( email )
 
-	const updatePassword = ( password ) => currentUser.updateEmail( password )
+	const updatePassword = password => currentUser.updateEmail( password )
 
 	const value = {
 		currentUser,
