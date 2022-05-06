@@ -13,5 +13,3 @@ const App = () => {
 }
 
 export default App
-
-// https://www.npmjs.com/package/@imaginary-cloud/eslint-config-react
