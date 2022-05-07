@@ -13,7 +13,7 @@ const Navbar = () => {
 
 	const NavItem = ( { link, children } ) => (
 		<a href={link}>
-			<li className="tracking-wider text-center list-style-none text-lg mx-auto lg:mr-4 mt-4 lg:inline-block lg:mt-0 lg:text-sm text-white cursor-pointer lg:my-auto hover:scale-110 transition uppercase">
+			<li className="tracking-widest text-center list-style-none text-2xl my-8 mx-auto lg:mr-8 mt-4 lg:inline-block lg:mt-0 lg:text-sm text-white cursor-pointer lg:my-auto hover:scale-110 transition uppercase hover:underline hover:decoration-wavy hover:decoration-violet-800 hover:font-semibold">
 				{children}
 			</li>
 		</a>
@@ -78,11 +78,11 @@ const Navbar = () => {
 	const renderNav = () => (
 		<div
 			className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto lg:ml-10 lg:text-xl transition-all ${
-				isExpanded ? "h-auto" : "h-0"
+				isExpanded ? "w-3/4 h-screen z-10 transition" : "hidden "
 			}`}
 		>
 			<Nav isExpanded>
-				<ul className={"lg:pt-0 transition mt-5 lg:mt-0 divid"}>
+				<ul className={"lg:pt-0 transition mt-5 lg:mt-0"}>
 					<NavItem link="">Home</NavItem>
 					<NavItem link="">Recipies</NavItem>
 					<NavItem link="">About</NavItem>
@@ -93,7 +93,7 @@ const Navbar = () => {
 	)
 
 	return (
-		<header className="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+		<header className="flex items-center justify-between flex-wrap bg-zinc-800 p-6">
 			{renderMenuButton()}
 			<Logo />
 			{renderIcons()}
