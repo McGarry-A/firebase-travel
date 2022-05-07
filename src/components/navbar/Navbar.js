@@ -41,11 +41,11 @@ const Navbar = () => {
             size="1rem"
             color="white"
             onClick={toggleExpand}
-            className="hover:scale-125 transition"
+            className="icon"
           />
         ) : (
           <svg
-            className="fill-current h-4 w-4 hover:scale-125 transition"
+            className="fill-current h-4 w-4 icon"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -63,14 +63,14 @@ const Navbar = () => {
         <BsBookmarkHeart
           size="1.5rem"
           color="white"
-          className="hover:scale-125 transition"
+          className="icon"
         />
       </button>
       <button className="mr-2">
         <FaRegUser
           size="1.5rem"
           color="white"
-          className="hover:scale-125 transition"
+          className="icon"
         />
       </button>
     </div>

@@ -1,14 +1,14 @@
 const CreateAccountCta = () => (
   <div className="p-6 my-6">
-    <h1 className="text-2xl font-bold text-center leading-normal tracking-wide">
-      Join us at <span className="underline decoration-violet-600 decoration-wavy">RecipiePanda</span> to browse and save recipies online
-    </h1>
-    <h2 className="text-md text-gray-500 mt-2 text-center w-full mx-auto tracking-wide">
+    <h2 className="">
+      Join us at <span className="text_isWavy">RecipiePanda</span> to browse and save recipies online
+    </h2>
+    <p className="text-gray-500 mt-1 w-full text-center text-lg">
       Easily crowdsource and review recipies with the number 1 community for
       recipie sharing and review!
-    </h2>
+    </p>
     <div className="mt-6 flex flex-1 p-6 justify-center">
-      <button className="uppercase tracking-wider font-semibold border-2 py-2 px-8 w-full bg-violet-800 border-violet-800 rounded-lg cursor-pointer text-lg hover:bg-transparent transition">
+      <button className="uppercase tracking-wider font-semibold btn w-full">
         Sign Up
       </button>
     </div>

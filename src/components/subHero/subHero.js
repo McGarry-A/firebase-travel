@@ -1,20 +1,19 @@
 import {SiCodechef} from "react-icons/si"
 const SubHero = () => {
   return (
-    <div className="my-6 p-6">
+    <div className="my-4 p-6">
         <SiCodechef size="4rem" className="mx-auto mb-2"/>
       <div>
-        <h1 className="text-2xl font-bold text-center leading-normal tracking-wide">
+        <h2 className="">
           Learn Incredible Dishes from{" "}
-          <span className="underline decoration-violet-600 decoration-wavy">
+          <span className="text_isWavy">
             Michelin Star 
           </span> Chefs
-          
-        </h1>
-        <h2 className="text-md text-gray-500 mt-1 text-center tracking-wide w-full">
+        </h2>
+        <p className="text-gray-500 mt-1 w-full text-center text-lg">
           Follow the best in the business as they perfect to-die-for dishes and
           replicate the magic at home.
-        </h2>
+        </p>
       </div>
     </div>
   );

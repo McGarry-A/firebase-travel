@@ -16,17 +16,17 @@ const Footer = () => {
 			<FaFacebookF
 				color="white"
 				size="1.5rem"
-				className="cursor-pointer transition hover:scale-125 mx-2"
+				className="icon mx-2"
 			/>
 			<FaInstagram
 				color="white"
 				size="1.5rem"
-				className="cursor-pointer transition hover:scale-125 mx-2"
+				className="icon mx-2"
 			/>
 			<BsTwitter
 				color="white"
 				size="1.5rem"
-				className="cursor-pointer transition hover:scale-125 mx-2"
+				className="icon mx-2"
 			/>
 		</div>
 	)

@@ -11,10 +11,10 @@ import RecipieCard from "../recipieCard/RecipieCard";
 
 const Carousel = ({ title, data, isChef }) => {
   return (
-    <div className="py-5 mx-auto max-w-6xl">
-      <h2 className="my-10 text-2xl text-center font-med uppercase tracking-widest">
+    <div className="py-2 mx-auto max-w-6xl">
+      <h3 className="my-4">
         {title}
-      </h2>
+      </h3>
       <Swiper
         // navigation={true}
         className="mySwiper"
