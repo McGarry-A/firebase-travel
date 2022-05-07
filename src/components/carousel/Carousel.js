@@ -1,21 +1,22 @@
 import React from "react";
 
-import Card from "../recipieCard/RecipieCard";
-
+import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
 
-const Carousel = ({ title, data }) => {
+import ChefCard from "../chefCard/ChefCard";
+import RecipieCard from "../recipieCard/RecipieCard";
+
+const Carousel = ({ title, data, isChef }) => {
   return (
-    <div className="py-5 mx-auto">
+    <div className="py-5 mx-auto max-w-6xl">
       <h2 className="my-10 text-2xl text-center font-med uppercase tracking-widest">
         {title}
       </h2>
       <Swiper
-        navigation={true}
+        // navigation={true}
         className="mySwiper"
         slidesPerView={1}
         breakpoints={{
@@ -32,8 +33,8 @@ const Carousel = ({ title, data }) => {
       >
         {data.map((el, index) => {
           return (
-            <SwiperSlide key={index} className="min-w-xs">
-              <Card el={el} />
+            <SwiperSlide key={index} >
+                {!isChef ? <RecipieCard el={el} /> : <ChefCard />}
             </SwiperSlide>
           );
         })}

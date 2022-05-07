@@ -1,5 +1,5 @@
 const Card = ({ el }) => (
-  <div className="overflow-hidden max-w-sm rounded-lg bg-zinc-700 border-slate-500 mx-auto">
+  <div className="overflow-hidden max-w-sm rounded-lg border bg-zinc-700 border-slate-500 mx-auto">
     <a href="#">
       <img className="rounded-t-lg" src={el.image} alt="" />
     </a>
@@ -13,6 +13,13 @@ const Card = ({ el }) => (
       <a
         href="#"
         className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-violet-800 rounded-lg hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300"
+      >
+        Bookmark Recipie
+      </a>
+
+       <a
+        href="#"
+        className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-transparent border-2 border-zinc-200 rounded-lg focus:ring-4 focus:outline-none ml-4"
       >
         Read more
         <svg

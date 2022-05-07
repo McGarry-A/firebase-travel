@@ -2,13 +2,13 @@ const Hero = () => {
   return (
     <div className="p-6">
       <div>
-        <h1 className="text-4xl font-bold text-center leading-normal tracking-wide">
-          <span className="underline decoration-violet-800 decoration-wavy">
+        <h1 className="text-3xl font-bold text-center leading-normal tracking-wide">
+          <span className="underline decoration-violet-600 decoration-wavy">
             Revolutionize
           </span>{" "}
-          your meal prep with RecipiPanda
+          Your Meal Prep With RecipiPanda
         </h1>
-        <h2 className="text-xl text-gray-500 mt-2 text-center w-10/12 mx-auto tracking-wide">
+        <h2 className="text-lg text-gray-500 mt-2 text-center w-full mx-auto tracking-wide">
           Easily crowdsource and review recipies with the number 1 community for
           recipie sharing and review!
         </h2>
