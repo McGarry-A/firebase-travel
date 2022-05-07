@@ -17,7 +17,7 @@
     @apply text-base tracking-wide
   }
   a {
-    @apply font-bold text-gray-300 hover:underline hover:decoration-wavy hover:decoration-violet-600
+    @apply font-bold text-gray-300 hover:underline hover:decoration-wavy hover:decoration-violet-600 hover:cursor-pointer
   }
 }
 
