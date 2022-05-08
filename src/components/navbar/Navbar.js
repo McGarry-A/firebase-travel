@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
 import Logo from "../logo/Logo";
-import Nav from "../../styles/Navbar/Nav";
-import NavItem from "../../styles/Navbar/NavItem";
+import Nav from "./Wrappers/Nav";
+import NavItem from "./Wrappers/NavItem";
 
 import { BsBookmarkHeart } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
 import { AiOutlineLogout } from "react-icons/ai";
-
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -63,10 +62,18 @@ const Navbar = () => {
     >
       <Nav isExpanded>
         <ul className={"lg:pt-0 transition mt-5 lg:mt-0"}>
-          <NavItem link="/">Home</NavItem>
-          <NavItem link="/recipies">Recipies</NavItem>
-          <NavItem link="/chefs">Chefs</NavItem>
-          <NavItem link="/our-mission">Our Mission</NavItem>
+          <NavItem link="/" toggleExpand={toggleExpand}>
+            Home
+          </NavItem>
+          <NavItem link="/recipies" toggleExpand={toggleExpand}>
+            Recipies
+          </NavItem>
+          <NavItem link="/chefs" toggleExpand={toggleExpand}>
+            Chefs
+          </NavItem>
+          <NavItem link="/our-mission" toggleExpand={toggleExpand}>
+            Our Mission
+          </NavItem>
           <NavItem link="">
             <AiOutlineLogout size="1.6rem" alt="logout" />
           </NavItem>

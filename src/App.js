@@ -13,19 +13,21 @@ import AppWrapper from "./styles/AppWrapper";
 
 const App = () => {
   return (
-    <AppWrapper>
-      <Navbar />
-      <Outlet />
-      <Footer />
+    <div className="bg-zinc-800 text-white w-full relative">
+      <AppWrapper>
+        <Navbar />
+        <Outlet />
+        <Footer />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/recipies" element={<Recipies />} />
-        <Route path="/chefs" element={<Chefs />} />
-        <Route path="/our-mission" element={<Mission />} />
-        <Route path="/auth" element={<Auth />} />
-      </Routes>
-    </AppWrapper>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/recipies" element={<Recipies />} />
+          <Route path="/chefs" element={<Chefs />} />
+          <Route path="/our-mission" element={<Mission />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </AppWrapper>
+    </div>
   );
 };
 
