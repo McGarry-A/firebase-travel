@@ -2,23 +2,30 @@ import React from "react";
 import "firebase/compat/auth";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import Carousel from "./components/carousel/Carousel";
-import Hero from "./components/hero/Hero";
-import data from "./data";
-import SubHero from "./components/subHero/subHero";
-import CreateAccountCta from "./components/createAccountCTA/CreateAccountCta";
+import { Routes, Route, Outlet } from "react-router-dom";
+
+import Home from "./routes/Home/Home";
+import Recipies from "./routes/Recipies/Recipies";
+import Mission from "./routes/Mission/Mission";
+import Chefs from "./routes/Chefs/Chefs";
+import Auth from "./routes/Auth/Auth";
+import AppWrapper from "./styles/AppWrapper";
 
 const App = () => {
   return (
-    <div className="lg:max-w-[1920px] lg:mx-auto bg-zinc-800 text-white pb-20">
+    <AppWrapper>
       <Navbar />
-      <Hero />
+      <Outlet />
       <Footer />
-      <Carousel title="Featured Recipies" data={data} />
-      <SubHero />
-      <Carousel title="Chefs Spotlight" data={data} isChef={true}/>
-      <CreateAccountCta />
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/recipies" element={<Recipies />} />
+        <Route path="/chefs" element={<Chefs />} />
+        <Route path="/our-mission" element={<Mission />} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
+    </AppWrapper>
   );
 };
 

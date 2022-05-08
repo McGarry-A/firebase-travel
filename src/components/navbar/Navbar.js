@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+
+import Logo from "../logo/Logo";
+import Nav from "../../styles/Navbar/Nav";
+import NavItem from "../../styles/Navbar/NavItem";
+
 import { BsBookmarkHeart } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
-import Logo from "../logo/Logo";
 import { AiOutlineLogout } from "react-icons/ai";
+
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -11,24 +16,6 @@ const Navbar = () => {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-
-  const NavItem = ({ link, children }) => (
-    <a href={link}>
-      <li className="flex align-center justify-center align-middle tracking-widest text-center list-style-none text-2xl my-8 mx-auto lg:mr-8 mt-4 lg:inline-block lg:mt-0 lg:text-sm text-white cursor-pointer lg:my-auto hover:scale-110 transition uppercase hover:underline hover:decoration-wavy hover:decoration-violet-800 hover:font-semibold">
-        {children}
-      </li>
-    </a>
-  );
-
-  const Nav = ({ isExpanded, children }) => (
-    <nav
-      className={`text-sm lg:flex-grow lg:block ${
-        isExpanded && "flex flex-col align-middle justify-center align-center"
-      }`}
-    >
-      {children}
-    </nav>
-  );
 
   const renderMenuButton = () => (
     <div className="block lg:hidden">
@@ -59,19 +46,11 @@ const Navbar = () => {
 
   const renderIcons = () => (
     <div className="flex lg:order-3">
-      <button className="mx-2">
-        <BsBookmarkHeart
-          size="1.5rem"
-          color="white"
-          className="icon"
-        />
+      <button className="mx-2 lg:mx-8">
+        <BsBookmarkHeart size="1.5rem" color="white" className="icon" />
       </button>
-      <button className="mr-2">
-        <FaRegUser
-          size="1.5rem"
-          color="white"
-          className="icon"
-        />
+      <button className="mr-2 lg:mr-2">
+        <FaRegUser size="1.5rem" color="white" className="icon" />
       </button>
     </div>
   );
@@ -84,11 +63,13 @@ const Navbar = () => {
     >
       <Nav isExpanded>
         <ul className={"lg:pt-0 transition mt-5 lg:mt-0"}>
-          <NavItem link="">Home</NavItem>
-          <NavItem link="">Recipies</NavItem>
-          <NavItem link="">Chefs</NavItem>
-          <NavItem link="">Our Mission</NavItem>
-          <NavItem link=""><AiOutlineLogout size="1.6rem" alt="logout"/></NavItem>
+          <NavItem link="/">Home</NavItem>
+          <NavItem link="/recipies">Recipies</NavItem>
+          <NavItem link="/chefs">Chefs</NavItem>
+          <NavItem link="/our-mission">Our Mission</NavItem>
+          <NavItem link="">
+            <AiOutlineLogout size="1.6rem" alt="logout" />
+          </NavItem>
         </ul>
       </Nav>
     </div>
