@@ -1,13 +1,10 @@
 import React from "react"
+
 import { SiFoodpanda } from "react-icons/si"
 
-const Logo = () => {
-	const LogoContainer = ( { children } ) => (
-		<div className="flex items-center justify-center text-white">
-			{children}
-		</div>
-	)
+import LogoContainer from "./Wrappers/LogoContainer"
 
+const Logo = () => {
 	return (
 		<LogoContainer>
 			<SiFoodpanda size="2em" color="white" className="mr-1" />

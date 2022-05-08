@@ -2,9 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  h1 {
+    @apply text-3xl font-bold leading-normal tracking-wide
+  }
+  h2 {
+    @apply text-2xl font-bold text-center leading-normal tracking-wide
+  }
+  h3 {
+    @apply text-xl text-center uppercase tracking-widest
+  }
+  p {
+    @apply text-base tracking-wide
+  }
+  a {
+    @apply font-bold text-gray-300 hover:underline hover:decoration-wavy hover:decoration-violet-600 hover:cursor-pointer
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-2 py-2 px-8 bg-violet-800 border-violet-800 rounded-lg cursor-pointer text-lg hover:bg-transparent transition
+  }
+  .card {
+    @apply max-w-sm mx-auto rounded-lg border bg-zinc-700 border-slate-500 shadow-md overflow-hidden
+  }
+  .icon {
+    @apply hover:scale-110 transition hover:cursor-pointer
+  }
+}
+
+@layer utilities {
+  .btn_isHollow {
+    @apply bg-transparent hover:bg-violet-800 hover:border-violet-800 transition 
+  }
+  .btn_alt {
+    @apply inline-flex items-center text-center text-white bg-transparent border-2 border-zinc-200 rounded-lg focus:ring-4 focus:outline-none
+  }
+  .text_isWavy {
+    @apply underline decoration-wavy decoration-violet-600
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
